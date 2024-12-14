@@ -136,25 +136,33 @@
         }
     </style>
 </head>
-<body>
-    <!-- Back Button -->
-    <a href="frontend.html" class="back-button">← Back</a>
-
-    <div class="center-container">
+    <body>
+         <div class="center-container">
         <img src="Screenshot 2024-11-17 171708.png" alt="Logo" class="logo">
         <h1 class="welcome-text">Welcome</h1>
         <div class="center-container">
             <!-- Login Form -->
-    <form action="dashboard.html" method="GET">
-    <div class="login-container">
-        <h2 class="login-title">LOG IN</h2>
-        <input type="email" id="login-email" name="email" placeholder="Email" class="input-field" required>
-        <input type="password" id="login-password" name="password" placeholder="Password" class="input-field" required>
-        <button type="submit" class="login-button">Log In</button>
-        <a href="forgotpassword.html" class="forgot-password">Forgot Password?</a>
-        <p class="sign-up">Don't have an account? <a href="register.html">Register</a></p>
+            <form id="login-form">
+                <div class="login-container">
+                    <h2 class="login-title">LOG IN</h2>
+                    <input type="email" id="login-email" name="email" placeholder="Email" class="input-field" required>
+                    <input type="password" id="login-password" name="password" placeholder="Password" class="input-field" required>
+                    <button type="submit" class="login-button">Log In</button>
+                    <a href="forgotpassword.html" class="forgot-password">Forgot Password?</a>
+                    <p class="sign-up">Don't have an account? <a href="register.html">Register</a></p>
+                </div>
+            </form>
+        </div>
     </div>
-</form>
+
+    <script>
+        // JavaScript to handle form submission and redirect
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            window.location.href = 'dashboard.html'; // Redirect to dashboard.html
+        });
+    </script>
+    </body>
 
 
         </div>
