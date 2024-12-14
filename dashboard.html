@@ -184,6 +184,7 @@ body {
 </head>
 <body>
 
+    <!-- Sidebar -->
     <div class="burger-menu" onclick="toggleMenu()">☰</div>
 
     <div class="search-bar">
@@ -197,6 +198,7 @@ body {
         <a href="AppJob.html">Job Form</a>
     </div>
 
+    <!-- Main Content -->
     <div class="content" id="content">
         <h1>Trabahanap</h1>
 
@@ -214,7 +216,7 @@ body {
             document.getElementById('content').classList.toggle('shifted');
         }
 
-        // Display recommendations
+        // Job recommendations
         const recommendations = [
             { 
                 title: 'Air Conditioning Repair', 
@@ -284,33 +286,25 @@ body {
                 locationLink.textContent = ` ${rec.location}`;
                 locationLink.target = '_blank'; // Opens in a new tab
                 locationLink.style.color = '#007BFF';
-                locationLink.style.textDecoration = 'underline'; // Always underlined
+                locationLink.style.textDecoration = 'underline';
                 locationLink.style.cursor = 'pointer';
 
                 const description = document.createElement('p');
                 description.textContent = rec.description;
 
                 const applyLink = document.createElement('a');
-applyLink.href = `${rec.link}?title=${encodeURIComponent(rec.title)}&company=${encodeURIComponent(rec.company)}&location=${encodeURIComponent(rec.location)}`;
-applyLink.textContent = 'Apply Now';
+                applyLink.href = `${rec.link}?title=${encodeURIComponent(rec.title)}&company=${encodeURIComponent(rec.company)}&location=${encodeURIComponent(rec.location)}`;
+                applyLink.textContent = 'Apply Now';
+                applyLink.style.display = 'inline-block';
+                applyLink.style.backgroundColor = '#007BFF';
+                applyLink.style.color = '#FFFFFF';
+                applyLink.style.padding = '4px 15px';
+                applyLink.style.borderRadius = '5px';
+                applyLink.style.textDecoration = 'none';
+                applyLink.style.marginTop = '10px';
 
-// Add styles for the button-like appearance
-applyLink.style.display = 'inline-block'; // Makes it look like a button
-applyLink.style.backgroundColor = '#007BFF'; // Blue background
-applyLink.style.color = '#FFFFFF'; // White text for contrast
-applyLink.style.padding = '4px 15px'; // Padding: 4px top/bottom, 15px left/right
-applyLink.style.borderRadius = '5px'; // Rounded corners
-applyLink.style.textDecoration = 'none'; // Remove underline
-applyLink.style.marginTop = '10px'; // Optional spacing above the link
-
-// Add a hover effect
-applyLink.onmouseover = () => {
-    applyLink.style.backgroundColor = '#0056b3'; // Darker blue when hovered
-};
-
-applyLink.onmouseout = () => {
-    applyLink.style.backgroundColor = '#007BFF'; // Revert to original blue
-};
+                applyLink.onmouseover = () => applyLink.style.backgroundColor = '#0056b3';
+                applyLink.onmouseout = () => applyLink.style.backgroundColor = '#007BFF';
 
                 const likeButton = document.createElement('button');
                 likeButton.textContent = 'Saved';
@@ -321,7 +315,7 @@ applyLink.onmouseout = () => {
 
                 recommendationDiv.appendChild(title);
                 recommendationDiv.appendChild(company);
-                recommendationDiv.appendChild(locationLink); // Directly append the link
+                recommendationDiv.appendChild(locationLink);
                 recommendationDiv.appendChild(description);
                 recommendationDiv.appendChild(applyLink);
                 recommendationDiv.appendChild(likeButton);
@@ -330,7 +324,6 @@ applyLink.onmouseout = () => {
         }
 
         window.onload = displayRecommendations;
-
     </script>
 </body>
 </html>
